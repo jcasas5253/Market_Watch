@@ -173,6 +173,10 @@ p {
     animation: wiggle 0.3s ease-in-out infinite;
 }
 
+.blue-text {
+    display: none !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 767px) {
     .hero {

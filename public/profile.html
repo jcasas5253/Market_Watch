@@ -21,6 +21,7 @@
                 <h1 class="mb-0" style="color: #fff; font-size: 30px;">Welcome, [Username]</h1>
             </div>
             <p class="lead" style="color: #fff !important; font-weight: bold; font-size: 25px;">Manage your watchlist and stay updated with the latest market trends.</p>
+                <button id="logoutButton" class="btn btn-danger">Logout</button>
         </div>
     </section>
 
@@ -28,26 +29,137 @@
     <section class="user-details py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 text-center">
-                    <h3 class="pop">User Information</h3>
-                    <p>Email: user@example.com</p>
-                    <p>Member Since: January 2024</p>
+                <div class="col-md-12 text-center">
+                    <h3 style="color: black;">Stock Market</h3>
+                    <p style="color: black !important;">
+                        View the top five gainers, losers, and most active stocks of the day.
+                        Updating based on current market activity, you'll always have the most relevant market
+                        information at your fingertips.
+                    </p>
                 </div>
-                <div class="col-md-4 text-center">
-                    <h3 class="pop">Watchlist</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">Stock 1</li>
-                        <li class="list-group-item">Stock 2</li>
-                        <li class="list-group-item">Stock 3</li>
-                    </ul>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-6">
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+{
+  "colorTheme": "dark",
+  "dateRange": "12M",
+  "exchange": "US",
+  "showChart": true,
+  "locale": "en",
+  "width": "100%",
+  "height": "550",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showSymbolLogo": false,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(0, 255, 0, 1)",
+  "plotLineColorFalling": "rgba(255, 0, 0, 1)",
+  "gridLineColor": "rgba(42, 46, 57, 0)",
+  "scaleFontColor": "rgba(209, 212, 220, 1)",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
+}</script>
+                        </div>
+                        <!-- TradingView Widget END -->
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <h3 class="pop">Account Settings</h3>
-                    <button type="button" class="btn btn-primary mb-2">Edit Profile</button>
-                    <button type="button" class="btn btn-danger">Log Out</button>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" style="text-align: center;">
+                    <h3 style="color: black;">Advanced Real-Time Chart</h3>
+                    <p style="color: black !important;">Search for specific symbols to find advanced data.</p>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+  "width": "100%",
+  "height": "610",
+  "symbol": "NASDAQ:AAPL",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "allow_symbol_change": true,
+  "calendar": false,
+  "support_host": "https://www.tradingview.com"
+}</script>
+                    </div>
+                    <!-- TradingView Widget END -->
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5" style="text-align: center;">
+                    <h3 style="color: black;">Top Stories</h3>
+                    <p style="color: black !important;">Stay updated on the crypto and stock markets with our daily news briefs, designed to be read in 20 seconds or less.</p>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>{
+  "feedMode": "all_symbols",
+  "isTransparent": false,
+  "displayMode": "regular",
+  "width": "100%",
+  "height": "550",
+  "colorTheme": "dark",
+  "locale": "en"
+}</script>
+                    </div>
+                    <!-- TradingView Widget END -->
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-5" style="text-align: center;">
+                    <h3 style="color: black;">Economic Calendar</h3>
+                    <p style="color: black !important;">Monitor important upcoming economic events, 
+                    announcements, and news. Easily set up filters with just a few clicks.</p>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>{
+  "width": "100%",
+  "height": "550",
+  "colorTheme": "dark",
+  "isTransparent": false,
+  "locale": "en",
+  "importanceFilter": "-1,0,1",
+  "countryFilter": "ar,au,br,ca,cn,fr,de,in,id,it,jp,kr,mx,ru,sa,za,tr,gb,us,eu"
+}</script>
+                    </div>
+                    <!-- TradingView Widget END -->
+                </div>
+            </div>
+        </div>
+
+
     </section>
 
     <!-- Footer -->
@@ -57,6 +169,45 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/';
+            } else {
+                axios.get('/api/validateToken', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(() => {
+                    localStorage.removeItem('token');
+                    window.location.href = '/';
+                });
+            }
+        }
+
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            axios.post('/api/logout').then(() => {
+                localStorage.removeItem('token');
+                window.location.href = '/';
+            }).catch(() => {
+                localStorage.removeItem('token');
+                window.location.href = '/';
+            });
+        });
+
+        // Check authentication on profile page load
+        window.addEventListener('load', () => {
+            checkAuth();
+        });
+
+        // Additional check to run on history navigation
+        window.addEventListener('popstate', () => {
+            checkAuth();
+        });
+    </script>
 </body>
 </html>

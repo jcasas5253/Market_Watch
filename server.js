@@ -8,6 +8,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const JWT_SECRET = 'your_jwt_secret';
 
 // Middleware
 app.use(bodyParser.json());
@@ -29,7 +30,23 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', UserSchema);
 
-// Routes
+// Middleware to authenticate token
+function authenticateToken(req, res, next) {
+    const token = req.headers['authorization'];
+    if (!token) return res.sendStatus(403);
+
+    jwt.verify(token.split(' ')[1], JWT_SECRET, (err, user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next();
+    });
+}
+
+// Token validation endpoint
+app.get('/api/validateToken', authenticateToken, (req, res) => {
+    res.json({ message: 'Token is valid' });
+});
+
 app.post('/api/register', async (req, res) => {
     const { username, password, confirmPassword } = req.body;
 
@@ -67,8 +84,14 @@ app.post('/api/login', async (req, res) => {
         return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
+});
+
+app.post('/api/logout', (req, res) => {
+    // On the server side, there's no real way to invalidate JWTs,
+    // but you can handle this by adding a blacklist or updating the client to delete the token.
+    res.json({ message: 'Logged out' });
 });
 
 // Start server
