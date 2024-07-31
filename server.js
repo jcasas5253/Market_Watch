@@ -47,14 +47,32 @@ app.get('/api/validateToken', authenticateToken, (req, res) => {
     res.json({ message: 'Token is valid' });
 });
 
+// Endpoint to get username
+app.get('/api/getUsername', authenticateToken, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.sendStatus(404); // User not found
+        }
+        res.json({ username: user.username });
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500); // Internal server error
+    }
+});
+
 app.post('/api/register', async (req, res) => {
     const { username, password, confirmPassword } = req.body;
 
+    // Capitalize the first letter of the username
+    const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
+
+    // Rest of your registration logic...
     if (password !== confirmPassword) {
         return res.status(400).json({ message: 'Passwords do not match' });
     }
 
-    const userExists = await User.findOne({ username });
+    const userExists = await User.findOne({ username: capitalizedUsername });
     if (userExists) {
         return res.status(400).json({ message: 'Username already exists' });
     }
@@ -63,7 +81,7 @@ app.post('/api/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-        username,
+        username: capitalizedUsername,
         password: hashedPassword
     });
 
