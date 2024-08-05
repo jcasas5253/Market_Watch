@@ -69,15 +69,12 @@ app.get('/api/getUsername', authenticateToken, async (req, res) => {
 app.post('/api/register', async (req, res) => {
     const { username, password, confirmPassword } = req.body;
 
-    // Capitalize the first letter of the username
-    const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
-
-    // Rest of your registration logic...
+    // Remove capitalization logic to save username exactly as entered
     if (password !== confirmPassword) {
         return res.status(400).json({ message: 'Passwords do not match' });
     }
 
-    const userExists = await User.findOne({ username: capitalizedUsername });
+    const userExists = await User.findOne({ username });
     if (userExists) {
         return res.status(400).json({ message: 'Username already exists' });
     }
@@ -86,7 +83,7 @@ app.post('/api/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-        username: capitalizedUsername,
+        username, // Save exactly as entered
         password: hashedPassword
     });
 
